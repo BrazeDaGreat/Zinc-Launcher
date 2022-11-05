@@ -1,8 +1,9 @@
-from config import discord_link, github_link, youtube_link # SETTINGS
+# SETTINGS
+from config import discord_link, github_link, youtube_link, launch_code
 
 # PACKAGES #
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, messagebox
 import os
 import webbrowser
 
@@ -18,16 +19,27 @@ root.option_add('*tearOff', FALSE)
 
 # ========== #
 def updates_check():
-    webbrowser.open('https://www.google.com.pk')
-#
-def game_launch():
-    pass
+    messagebox.showinfo(message="Coming Soon(TM).")
+def openGithub():
+    webbrowser.open('https://github.com/BrazeDaGreat/Zinc-Launcher')
+def showAbout():
+    messagebox.showinfo(message=f"""
+    Theta Launcher Beta 1.0
+    ----------------------------------------
+    Just... something made in Tkinter.
+    Don't forget to create a config.py file.
+
+    TODO:
+        * Checking for updates.
+    ----------------------------------------
+    (Created with <3 by Braze)
+    """)
 #
 menubar = Menu(root)
 #
 menu_file = menu_create(menubar, 'Launcher...', [
-    ('About...', updates_check),
-    ('Repository...', lambda: webbrowser.open('https://github.com/BrazeDaGreat/Zinc-Launcher'))
+    ('About...', showAbout),
+    ('Repository...', openGithub)
 ])
 #
 root['menu'] = menubar
@@ -45,7 +57,7 @@ frame_game = ttk.LabelFrame(root, text="Game", padding=16, borderwidth=8)
 frame_game.grid(row=0, column=1, padx=6, pady=6)
 # 
 btn_launch = ttk.Button(
-    frame_game, text="Launch Game", command=game_launch, padding=3, width=16
+    frame_game, text="Launch Game", command=launch_code, padding=3, width=16
 )
 btn_launch.grid(row=0, column=0)
 
