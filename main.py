@@ -12,7 +12,7 @@ from funcs import button_create, menu_create
 
 
 root = Tk()
-root.title("Theta Quartz Launcher")
+root.title("Theta Launcher (Beta)")
 root.iconbitmap('ring.ico')
 root.option_add('*tearOff', FALSE)
 # ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative')
