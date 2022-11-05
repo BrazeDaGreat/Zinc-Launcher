@@ -12,7 +12,7 @@ from funcs import button_create, menu_create
 
 
 root = Tk()
-root.title("Theta Launcher (Beta)")
+root.title("Zinc Launcher (Beta)")
 root.iconbitmap('ring.ico')
 root.option_add('*tearOff', FALSE)
 # ('winnative', 'clam', 'alt', 'default', 'classic', 'vista', 'xpnative')
@@ -24,7 +24,7 @@ def openGithub():
     webbrowser.open('https://github.com/BrazeDaGreat/Zinc-Launcher')
 def showAbout():
     messagebox.showinfo(message=f"""
-    Theta Launcher Beta 0.1.0
+    [1] Zinc Launcher Beta 0.2.0
     ----------------------------------------
     Just... something made in Tkinter.
     Don't forget to create a config.py file.
@@ -72,6 +72,6 @@ btn_git = button_create(frame_misc, "Github Repository...", lambda: webbrowser.o
 btn_git.grid(row=0, column=1, padx=3, pady=3)
 
 btn_yt = button_create(frame_misc, "YouTube Channel...", lambda: webbrowser.open(youtube_link), 18)
-btn_yt.grid(row=1, column=0, padx=3, pady=3)
+btn_yt.grid(row=1, column=0, padx=3, pady=3, columnspan=2)
 
 root.mainloop()
