@@ -1,7 +1,14 @@
+from config import discord_link, github_link, youtube_link # SETTINGS
+
+# PACKAGES #
 from tkinter import *
 from tkinter import ttk
 import os
 import webbrowser
+
+# FILES #
+from funcs import button_create, menu_create
+
 
 root = Tk()
 root.title("Theta Quartz Launcher")
@@ -15,25 +22,12 @@ def updates_check():
 #
 def game_launch():
     pass
-
-# ========== #
-def button_create(master, text, command, width=16):
-    return ttk.Button(
-        master, text=text, command=command, padding=3, width=width
-    )
-# ========== #
-def menu_create(master, label, cmds):
-    menu = Menu(master)
-    for x in cmds:
-        menu.add_command(label=x[0], command=x[1])
-    master.add_cascade(menu=menu, label=label)
-    return menu
 #
 menubar = Menu(root)
 #
 menu_file = menu_create(menubar, 'Launcher...', [
     ('About...', updates_check),
-    ('Repository...', lambda: webbrowser.open('https://www.github.com/BrazeDaGreat'))
+    ('Repository...', lambda: webbrowser.open('https://github.com/BrazeDaGreat/Zinc-Launcher'))
 ])
 #
 root['menu'] = menubar
@@ -59,13 +53,13 @@ btn_launch.grid(row=0, column=0)
 frame_misc = ttk.LabelFrame(root, text="Misc", padding=16, borderwidth=8)
 frame_misc.grid(row=1, column=0, padx=6, pady=6, columnspan=2)
 
-btn_disc = button_create(frame_misc, "Join Discord Server...", updates_check, 18)
+btn_disc = button_create(frame_misc, "Join Discord Server...", lambda: webbrowser.open(discord_link), 18)
 btn_disc.grid(row=0, column=0, padx=3, pady=3)
 
-btn_git = button_create(frame_misc, "Github Repository...", updates_check, 18)
+btn_git = button_create(frame_misc, "Github Repository...", lambda: webbrowser.open(github_link), 18)
 btn_git.grid(row=0, column=1, padx=3, pady=3)
 
-btn_yt = button_create(frame_misc, "YouTube Channel...", updates_check, 18)
+btn_yt = button_create(frame_misc, "YouTube Channel...", lambda: webbrowser.open(youtube_link), 18)
 btn_yt.grid(row=1, column=0, padx=3, pady=3)
 
 root.mainloop()
