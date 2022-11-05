@@ -24,7 +24,7 @@ def openGithub():
     webbrowser.open('https://github.com/BrazeDaGreat/Zinc-Launcher')
 def showAbout():
     messagebox.showinfo(message=f"""
-    Theta Launcher Beta 1.0
+    Theta Launcher Beta 0.1.0
     ----------------------------------------
     Just... something made in Tkinter.
     Don't forget to create a config.py file.
