@@ -1,10 +1,10 @@
 # SETTINGS
-from config import discord_link, github_link, youtube_link, launch_code
+from config import update_ver, discord_link, github_link, youtube_link, launch_code
+VERSION = "Beta 0.3.0"
 
 # PACKAGES #
 from tkinter import *
 from tkinter import ttk, messagebox
-import os
 import webbrowser
 
 # FILES #
@@ -24,20 +24,20 @@ def openGithub():
     webbrowser.open('https://github.com/BrazeDaGreat/Zinc-Launcher')
 def showAbout():
     messagebox.showinfo(message=f"""
-    [1] Zinc Launcher Beta 0.2.0
-    ----------------------------------------
+    Zinc Launcher {VERSION}
+    {"*"*50}
     Just... something made in Tkinter.
     Don't forget to create a config.py file.
 
     TODO:
         * Checking for updates.
-    ----------------------------------------
+    {"*"*50}
     (Created with <3 by Braze)
     """)
 #
 menubar = Menu(root)
 #
-menu_file = menu_create(menubar, 'Launcher...', [
+menu_file = menu_create(menubar, f"{VERSION}...", [
     ('About...', showAbout),
     ('Repository...', openGithub)
 ])
@@ -57,9 +57,12 @@ frame_game = ttk.LabelFrame(root, text="Game", padding=16, borderwidth=8)
 frame_game.grid(row=0, column=1, padx=6, pady=6)
 # 
 btn_launch = ttk.Button(
-    frame_game, text="Launch Game", command=launch_code, padding=3, width=16
+    frame_game, text="Launch Game", command=lambda: launch_code(root), padding=3, width=16
 )
 btn_launch.grid(row=0, column=0)
+label_launch = ttk.Label(frame_game, text=f"(Update Version: u{update_ver})")
+label_launch.grid(row=1, column=0)
+
 
 # ========== #
 frame_misc = ttk.LabelFrame(root, text="Misc", padding=16, borderwidth=8)
