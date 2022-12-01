@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-from config import update_ver
+from config import update_ver, rep_name, github_link
 
-url='https://github.com/BrazeDaGreat/Zinc-Launcher/releases'
+url=f"{github_link}/releases"
 
 
 data = requests.get(url)
@@ -30,14 +30,13 @@ for x in titles:
 
 print(updates)
 
-# SCRAPING TO GET DOWNLOAD LINK FROM WEBPAGE
 for i in updates:
-    print(f"Fetching {i[0]}...")
-    url = i[1]
-    soup = BeautifulSoup(requests.get(url).text, 'html.parser')
-    print(soup)
-    # a = soup.find('div', class_="d-flex flex-justify-start col-12 col-lg-9")
-    # print(a)
+    new_ver = int(i[0].split(".")[0])
+    print(f"Downloading {new_ver}")
+    data = requests.get(f"{github_link}/archive/refs/tags/uv{new_ver}.zip")
+    open(f"update_{new_ver}.zip", "wb").write(data.content)
+    print(f"Successfully downloaded {new_ver}")
 
-
-    print(f"Downloading {i[0]}...")
+# data = requests.get('https://github.com/BrazeDaGreat/Zinc-Launcher/archive/refs/tags/v0.3-beta.zip')
+# data = requests.get('https://github.com/BrazeDaGreat/Zinc-Launcher/archive/refs/tags/uv3.zip')
+# open("test.zip", "wb").write(data.content)

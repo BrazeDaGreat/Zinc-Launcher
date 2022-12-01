@@ -1,6 +1,6 @@
 # SETTINGS
 from config import update_ver, discord_link, github_link, youtube_link, launch_code
-VERSION = "Beta 0.3.1"
+VERSION = "Beta 0.4.0"
 
 # PACKAGES #
 from tkinter import *
